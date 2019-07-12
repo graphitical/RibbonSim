@@ -1,3 +1,17 @@
+# RibbonSim example project
+
+A toroid project example showing how to interface with the simulator.
+Compile the project using the standard cmake routine:
+
+    mkdir build
+    cd build
+    cmake ..
+    make
+    
+If you encounter an error regarding viewer.core, change the files in question from "viewer.core" to "viewer.core()"
+
+This should find and build the dependencies and create a 'rods_bin' binary.
+
 # libigl example physics project
 
 A blank project example showing how to set up a simple physical simulation using libigl and cmake. Based on Alec Jacobson's libigl example project. This project contains some boilerplate that sets up a physical simulation to run in its own thread, with rendering provided by libigl.
