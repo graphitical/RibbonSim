@@ -184,9 +184,9 @@ bool RodsHook::mouseClicked(igl::opengl::glfw::Viewer &viewer, int button)
     Eigen::Vector3f bc;
     // Cast a ray in the view direction starting from the mouse position
     double x = viewer.current_mouse_x;
-    double y = viewer.core.viewport(3) - viewer.current_mouse_y;
-    if (igl::unproject_onto_mesh(Eigen::Vector2f(x, y), viewer.core.view,
-        viewer.core.proj, viewer.core.viewport, this->Q, this->F, fid, bc))
+    double y = viewer.core().viewport(3) - viewer.current_mouse_y;
+    if (igl::unproject_onto_mesh(Eigen::Vector2f(x, y), viewer.core().view,
+        viewer.core().proj, viewer.core().viewport, this->Q, this->F, fid, bc))
     {
         std::cout << fid << " - clicked on face #\n";
         int prevId = 0;
@@ -1404,7 +1404,7 @@ void RodsHook::renderRenderGeometry(igl::opengl::glfw::Viewer &viewer)
         viewer.data().set_points(Eigen::MatrixXd(0, 3), Eigen::MatrixXd(0, 3));
     }
 
-    viewer.core.lighting_factor = 0.;
+    viewer.core().lighting_factor = 0.;
     viewer.data().set_colors(faceColors);
 
     if(constraintEdges.rows() > 0)
